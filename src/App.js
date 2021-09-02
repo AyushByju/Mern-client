@@ -20,7 +20,7 @@ const updateFriend = (id) => {
   const newAge = prompt('Enter New Age');
   Axios.put('https://mernfirstapp1.herokuapp.com//update',{newAge: newAge, id: id}).then (()=> {
       setListOfFriends(listOFFriends.map((val)=>{
-        return val._id == id ? {_id: id,name: val.name,age: newAge } : val 
+        return val._id === id ? {_id: id,name: val.name,age: newAge } : val 
       }))
   })
 }
@@ -28,7 +28,7 @@ const updateFriend = (id) => {
 const deleteFriend = (id) =>{
   Axios.delete(`https://mernfirstapp1.herokuapp.com/delete/${id}`).then(()=>{
     setListOfFriends(listOFFriends.filter((val)=>{
-      return val._id != id;
+      return val._id !== id;
     }))
   })
 };
