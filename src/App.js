@@ -8,7 +8,7 @@ const [age, setAge] = useState(0);
 const [listOFFriends, setListOfFriends] = useState([]);
 
 const addFriend = () => {
-  Axios.post('https://mernfirstapp1.herokuapp.com//addfriend',{
+  Axios.post('https://mernfirstapp1.herokuapp.com/addfriend',{
     name: name, 
     age: age,
   }).then((response)=>{
@@ -18,7 +18,7 @@ const addFriend = () => {
 
 const updateFriend = (id) => {
   const newAge = prompt('Enter New Age');
-  Axios.put('https://mernfirstapp1.herokuapp.com//update',{newAge: newAge, id: id}).then (()=> {
+  Axios.put('https://mernfirstapp1.herokuapp.com/update',{newAge: newAge, id: id}).then (()=> {
       setListOfFriends(listOFFriends.map((val)=>{
         return val._id === id ? {_id: id,name: val.name,age: newAge } : val 
       }))
